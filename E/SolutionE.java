@@ -202,9 +202,37 @@ class Dolphin implements SwimmingAnimal {
 	
 }
 
-public class SolutionD {
+public class SolutionE {
 	
 	public static void main(String...args) {
+		Animal[] animals = new Animal[] {
+			new Birdy(),
+			new Duck(),
+			new Chicken(false),
+			new Rooster(),
+			new Parrot(new Dog()),
+			new Shark(),
+			new Dog(),
+			new Cat()
+		};
+		
+		long flyers = Arrays.stream(animals)
+						.filter(x -> x instanceof FlyingAnimal)
+						.count();
+		
+		System.out.println("No of flyers :"+ flyers);
+
+		long walkers = Arrays.stream(animals)
+				.filter(x -> x instanceof LandAnimal)
+				.count();
+
+		System.out.println("No of walkers and singers :"+ walkers);
+
+		long swimmers = Arrays.stream(animals)
+				.filter(x -> x instanceof SwimmingAnimal)
+				.count();
+
+		System.out.println("No of swimmers :"+ swimmers);
 	}
 	
 }
